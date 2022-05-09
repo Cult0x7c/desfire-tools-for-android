@@ -346,7 +346,7 @@ public class MifareDesfire {
 	    }
 
 	    C.MIFARE_DESFIRE (tag).setAuthenticatedKeyNumber(key_no);
-	    C.MIFARE_DESFIRE (tag).setSessionKey(MifareDesfireKey.mifare_desfire_session_key_new (PCD_RndA, PICC_RndB, key));
+	    C.MIFARE_DESFIRE (tag).setSessionKey(MifareDesfireKey2.mifare_desfire_session_key_new (PCD_RndA, PICC_RndB, key));
 	    C.memset (C.MIFARE_DESFIRE (tag).getInitializationVector(), C.zero, MifareDesfireCrypto.MAX_CRYPTO_BLOCK_SIZE);
 
 	    switch (C.MIFARE_DESFIRE (tag).getAuthenticationScheme()) {

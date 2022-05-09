@@ -65,7 +65,7 @@ import com.github.skjolber.desfire.ev1.model.key.DesfireKey;
 import com.github.skjolber.desfire.ev1.model.key.DesfireKeyType;
 import com.github.skjolber.desfire.libfreefare.MifareDESFireKey;
 import com.github.skjolber.desfire.libfreefare.MifareDesfire;
-import com.github.skjolber.desfire.libfreefare.MifareDesfireKey;
+import com.github.skjolber.desfire.libfreefare.MifareDesfireKey2;
 import com.github.skjolber.desfire.libfreefare.MifareTag;
 import com.skjolberg.mifare.desfiretool.FileSaveFragment.Callbacks;
 import com.skjolberg.mifare.desfiretool.filelist.ApplicationDetail;
@@ -806,7 +806,7 @@ public class MainActivity extends Activity implements ReaderCallback, FragmentMa
 
 	    	DesfireAESKey aesKey = (DesfireAESKey)key;
 	    	
-	    	MifareDESFireKey mifareDESFireKey = MifareDesfireKey.mifare_desfire_aes_key_new_with_version(aesKey.getValue(), (byte)key.getVersion());
+	    	MifareDESFireKey mifareDESFireKey = MifareDesfireKey2.mifare_desfire_aes_key_new_with_version(aesKey.getValue(), (byte)key.getVersion());
 	    	
 			int result = mifare_desfire_authenticate_aes (tag, (byte)desfireApplicationKey.getIndex(), mifareDESFireKey);
 			
@@ -824,7 +824,7 @@ public class MainActivity extends Activity implements ReaderCallback, FragmentMa
 
 	    	Desfire3K3DESKey desfire3k3desKey = (Desfire3K3DESKey)key;
 
-	    	MifareDESFireKey mifareDESFireKey = MifareDesfireKey.mifare_desfire_3k3des_key_new(desfire3k3desKey.getValue());
+	    	MifareDESFireKey mifareDESFireKey = MifareDesfireKey2.mifare_desfire_3k3des_key_new(desfire3k3desKey.getValue());
 
 			int result = mifare_desfire_authenticate_iso (tag, (byte)desfireApplicationKey.getIndex(), mifareDESFireKey);
 
@@ -842,9 +842,9 @@ public class MainActivity extends Activity implements ReaderCallback, FragmentMa
 
 	    	Desfire3DESKey desfire3desKey = (Desfire3DESKey)key;
 
-	    	MifareDESFireKey mifareDESFireKey = MifareDesfireKey.mifare_desfire_3des_key_new(desfire3desKey.getValue());
+	    	MifareDESFireKey mifareDESFireKey = MifareDesfireKey2.mifare_desfire_3des_key_new(desfire3desKey.getValue());
 
-	    	MifareDesfireKey.mifare_desfire_key_set_version(mifareDESFireKey, (byte)desfire3desKey.getVersion());
+	    	MifareDesfireKey2.mifare_desfire_key_set_version(mifareDESFireKey, (byte)desfire3desKey.getVersion());
 	    	
 			int result = mifare_desfire_authenticate (tag, (byte)desfireApplicationKey.getIndex(), mifareDESFireKey);
 
@@ -862,9 +862,9 @@ public class MainActivity extends Activity implements ReaderCallback, FragmentMa
 
 	    	DesfireDESKey desfireDesKey = (DesfireDESKey)key;
 
-	    	MifareDESFireKey mifareDESFireKey = MifareDesfireKey.mifare_desfire_des_key_new(desfireDesKey.getValue());
+	    	MifareDESFireKey mifareDESFireKey = MifareDesfireKey2.mifare_desfire_des_key_new(desfireDesKey.getValue());
 
-	    	MifareDesfireKey.mifare_desfire_key_set_version(mifareDESFireKey, (byte)desfireDesKey.getVersion());
+	    	MifareDesfireKey2.mifare_desfire_key_set_version(mifareDESFireKey, (byte)desfireDesKey.getVersion());
 	    	
 			int result = mifare_desfire_authenticate (tag, (byte)desfireApplicationKey.getIndex(), mifareDESFireKey);
 

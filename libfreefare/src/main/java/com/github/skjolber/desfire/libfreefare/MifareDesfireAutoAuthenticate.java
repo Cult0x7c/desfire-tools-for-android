@@ -29,20 +29,20 @@ public class MifareDesfireAutoAuthenticate {
 
 	    switch (key_version[0]) {
 	    case 0x00:
-		key = MifareDesfireKey.mifare_desfire_des_key_new_with_version (key_data_null);
+		key = MifareDesfireKey2.mifare_desfire_des_key_new_with_version (key_data_null);
 		break;
 	    case 0x42:
-		key = MifareDesfireKey.mifare_desfire_aes_key_new_with_version (key_data_aes, key_data_aes_version);
+		key = MifareDesfireKey2.mifare_desfire_aes_key_new_with_version (key_data_aes, key_data_aes_version);
 		break;
 	    case (byte) 0xAA:
 	    	Log.d(TAG, "Authenticate using DES key");
-		key = MifareDesfireKey.mifare_desfire_des_key_new_with_version (key_data_des);
+		key = MifareDesfireKey2.mifare_desfire_des_key_new_with_version (key_data_des);
 		break;
 	    case (byte) 0xC7:
-		key = MifareDesfireKey.mifare_desfire_3des_key_new_with_version (key_data_3des);
+		key = MifareDesfireKey2.mifare_desfire_3des_key_new_with_version (key_data_3des);
 		break;
 	    case 0x55:
-		key = MifareDesfireKey.mifare_desfire_3k3des_key_new_with_version (key_data_3k3des);
+		key = MifareDesfireKey2.mifare_desfire_3k3des_key_new_with_version (key_data_3k3des);
 		break;
 	    default:
 		throw new IllegalArgumentException("Unknown master key " + Integer.toHexString(key_version[0] & 0xFF));
